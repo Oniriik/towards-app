@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*, *:before, *:after,*:focus{  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+    text-decoration: none;
+    list-style-type: none;
+    outline:none;
+    font-family: 'Inter', sans-serif;
+}
+
