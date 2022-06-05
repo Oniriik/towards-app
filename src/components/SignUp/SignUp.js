@@ -1,50 +1,54 @@
-import React, { useRef, useState} from 'react'
+import React, { useRef, useState } from 'react'
 import "./signup.css"
-import { useAuth } from '../contexts/AuthProvider'
-
+import { useAuth } from '../../contexts/AuthProvider'
 export default function SignUp() {
 
   const nameRef = useRef()
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordconfirmRef = useRef()
-  const { signup } = useAuth()
+  const { signup, currentUser} = useAuth()
 
   const [error, setError] = useState()
   const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (passwordRef.current.value.length < 6 ){
-      return setError("Password must be atleast 6 characters ")
+    if (passwordRef.current.value.length < 6) {
+      return setError("password must be atleast 6 characters ")
     }
-    if (passwordRef.current.value !== passwordconfirmRef.current.value){
+    if (passwordRef.current.value !== passwordconfirmRef.current.value) {
 
       passwordRef.current.value = ''
-      return setError("Password do not match")
+      return setError("password do not match")
     }
-    try{
+    try {
       setError('')
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      
-    }catch(error){
+
+    } catch (error) {
       console.error(error);
       setError("Error creating an account")
     }
     setLoading(false)
   }
   return (
-      <div className='signupForm'>
-        <h2>Tell us about you</h2>
-        <form onSubmit={handleSubmit}>
-          <input type="text" placeholder='name' ref={nameRef}/>
-          <input type="text" placeholder='email' ref={emailRef} />
-          <input type="password" placeholder='password' ref={passwordRef} />
-          <input type="password" placeholder='password confirm' ref={passwordconfirmRef} />
-          {error}
-          <button disabled={loading}>sign up</button>
-        </form>
+    <div className='signupForm'>
+    {JSON.stringify(currentUser.email)}
+      <h2>Tell us about you</h2>
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder='name' ref={nameRef} />
+        <input type="text" placeholder='email' ref={emailRef} />
+        <input type="password" placeholder='password' ref={passwordRef} />
+        <input type="password" placeholder='password confirm' ref={passwordconfirmRef} />
+        <p className='errorMsg'>{error}</p>
+        <button disabled={loading}>sign up</button>
+      </form>
+      <div className='separator'>
+      <hr /><p>or</p><hr />
       </div>
+      <button className='googleSignup'><p>signup with </p><img src='https://i.ibb.co/F5THtXr/google-Icon.png' alt="googleIcon" /></button>
+    </div>
   )
 }

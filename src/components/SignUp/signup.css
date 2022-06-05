@@ -31,7 +31,8 @@
 }
 
 .signupForm form input {
-  padding: 0.5rem;
+  height: 30px;
+  padding: 10px;
   border: solid 1px grey;
   border-radius: 10px;
 }
@@ -43,5 +44,69 @@
   color: white;
   background-color: #9C51E0;
   text-transform: capitalize;
+  cursor: pointer;
+}
+
+.signupForm form button:active {
+  background-color: #8546c0;
+}
+
+.signupForm form .errorMsg {
+  font-size: 15px;
+  color: red;
+  text-align: center;
+}
+
+.signupForm .separator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.signupForm .separator hr {
+  width: 120px;
+}
+
+.signupForm .googleSignup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  max-width: 70vw;
+  background-color: white;
+  border: solid 1px grey;
+  border-radius: 10px;
+}
+
+.signupForm .googleSignup p {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.signupForm .googleSignup img {
+  width: 1rem;
+  height: auto;
 }
 /*# sourceMappingURL=signup.css.map */

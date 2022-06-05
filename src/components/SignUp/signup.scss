@@ -16,7 +16,8 @@
         gap: 1rem;
         
         input{
-            padding: 0.5rem;
+            height: 30px;
+            padding: 10px;
             
             border: solid 1px grey;
             border-radius: 10px;
@@ -32,9 +33,48 @@
             color: white;
             background-color: #9C51E0;
             text-transform: capitalize;
+            cursor: pointer;
+            
         }
-        input:active,button:active{
-
+        button:active{
+            background-color: #8546c0;
+        }
+        .errorMsg{
+            font-size: 15px;
+            color: red;
+            text-align: center;
+        }
+    }
+    .separator{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        hr{
+            width: 120px;
+        }
+    }
+    .googleSignup{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        gap: 1rem;
+        width: 300px;
+        height: 30px;
+        padding: 10px;
+        max-width: 70vw;        
+        background-color: white;
+        border: solid 1px grey;
+        border-radius: 10px;
+        p{
+            text-transform: capitalize;
+            font-weight: 600;
+        }
+        img{
+            width: 1rem;
+            height: auto;
         }
     }
 }
