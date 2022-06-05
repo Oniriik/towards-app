@@ -1,1 +1,112 @@
-/* No CSS *//*# sourceMappingURL=signin.css.map */
+.signInForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100vh;
+  gap: 1.5rem;
+}
+
+.signInForm form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 300px;
+  max-width: 60vw;
+  gap: 1rem;
+}
+
+.signInForm form input {
+  height: 30px;
+  padding: 10px;
+  border: solid 1px grey;
+  border-radius: 10px;
+}
+
+.signInForm form button {
+  padding: 0.5rem;
+  border: solid 1px grey;
+  border-radius: 10px;
+  color: white;
+  background-color: #9C51E0;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.signInForm form button:active {
+  background-color: #8546c0;
+}
+
+.signInForm form .errorMsg {
+  font-size: 15px;
+  color: red;
+  text-align: center;
+}
+
+.signInForm .separator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.signInForm .separator hr {
+  width: 120px;
+}
+
+.signInForm .googleSignin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  max-width: 70vw;
+  background-color: white;
+  border: solid 1px grey;
+  border-radius: 10px;
+}
+
+.signInForm .googleSignin p {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.signInForm .googleSignin img {
+  width: 1rem;
+  height: auto;
+}
+/*# sourceMappingURL=signin.css.map */

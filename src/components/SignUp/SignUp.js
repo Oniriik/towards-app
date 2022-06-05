@@ -35,7 +35,7 @@ export default function SignUp() {
   }
   return (
     <div className='signupForm'>
-    {JSON.stringify(currentUser.email)}
+    {currentUser && JSON.stringify(currentUser.email)}
       <h2>Tell us about you</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder='name' ref={nameRef} />
