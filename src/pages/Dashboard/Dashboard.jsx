@@ -1,22 +1,30 @@
 import React from 'react'
-import Header from '../../components/Header/Header'
+import './dashboard.css'
 import { useAuth } from '../../contexts/AuthProvider'
+import { Navigate,useNavigate } from 'react-router-dom'
 
-export default function HomePage() {
+export default function Dashboard() {
+  const navigate = useNavigate()
   const { signOut ,currentUser} = useAuth()
   async function handleSignOut(){
     try{
       await signOut()
+      navigate('/')
     }catch(error){
       console.error("error logging out")
     }
     
   }
+  
+  if(!currentUser){
+    return <Navigate to='/' replace/>
+  }
+
+  
   return (
     <>
-    <Header/>
-    {currentUser && JSON.stringify(currentUser.email)}
-
+    <div>Dashboard</div>
+    <p>Connected using {currentUser.email}</p>
     <button onClick={handleSignOut}>signOut</button>
     </>
   )
