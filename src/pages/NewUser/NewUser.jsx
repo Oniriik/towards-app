@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import "./newuser.css"
 import UsernameSelect from '../../components/UsernameSelect/UsernameSelect'
 import SignUp from '../../components/SignUp/SignUp'
 import FirstSetup from '../../components/FirstSetup/FirstSetup'
+import NewUserState from '../../components/NewUserState/NewUserState'
 
 export default function NewUser() {
     const [step, setStep] = useState(0)
@@ -9,19 +11,20 @@ export default function NewUser() {
     const [instagramLink,setInstagramLink] = useState()
     const [tiktokLink,setTiktokLink] = useState()
     const [twitterLink,setTwitterLink] = useState()
-    switch (step) {
-        case 0:
-            return (<UsernameSelect setStep={setStep}/>)
-           
-        case 1:
-            return (<SignUp setStep={setStep}/>)
-            
-        case 2:
-            return (<FirstSetup setStep={setStep}/>)
-            
-
-        default:
-            return('error')
-       
-    }
+    return(
+        <div className='newuser-wrapper container'>
+        <NewUserState state = { step } setStep = { setStep }/>
+        {step === 0 ?
+        <UsernameSelect setStep = { setStep }/>
+        :
+        step === 1 ?
+        <SignUp setStep = { setStep }/>
+        :
+        step === 2 ?
+        <FirstSetup/>
+        :
+        <UsernameSelect/>
+        }
+        </div>
+    )
 }
