@@ -9,6 +9,7 @@ export default function UsernameSelect({setStep}) {
       <>
     <div>UsernameSelect</div>
     <button onClick={handleClick}>next</button>
+    <div></div>
     </>
   )
 }
