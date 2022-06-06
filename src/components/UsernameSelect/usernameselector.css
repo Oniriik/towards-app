@@ -1,0 +1,38 @@
+.username-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: solid 3px #C9C9C9;
+  border-radius: 5px;
+  width: 250px;
+  padding: 3px;
+}
+
+.username-field img {
+  height: 20px;
+  margin-right: 5px;
+}
+
+.username-field p {
+  font-weight: 600;
+}
+
+.username-field input {
+  border: none;
+  height: 100%;
+  padding: 0 1px;
+  font-weight: 500;
+  width: 120px;
+}
+/*# sourceMappingURL=usernameselector.css.map */
