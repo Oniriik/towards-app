@@ -7,40 +7,35 @@ import NewUserState from '../../components/NewUserState/NewUserState'
 import { useDbFunctions } from '../../contexts/DbFunctions'
 
 export default function NewUser() {
+    const { createUserProfile } = useDbFunctions()
     const [step, setStep] = useState(0)
-    const [userInfos,setUserinfos] = useState({
-        username:'tim',
-        name:'timothe',
-        links:{
-            instagram:'xtimothe',
-            twitter:'rizcollant',
-            tiktok:'xtimothe',
-        }
-    })
-    const { createUserProfile} = useDbFunctions()
-
-    async function handleclick(){
-        try{
-            await createUserProfile(userInfos)
-        }catch(e){
+    const [userInfos, setUserinfos] = useState()
+    
+    function updateInfos(update){
+        setUserinfos({...userInfos,...update})
+    }
+    async function initUser(uid) {
+        try {
+            await createUserProfile(userInfos,uid)
+        } catch (e) {
             console.log(e)
         }
-        
+
     }
-    return(
+    return (
         <div className='newuser-wrapper container'>
-        <NewUserState state = { step } setStep = { setStep }/>
-        {step === 0 ?
-        <UsernameSelect setStep = { setStep }/>
-        :
-        step === 1 ?
-        <SignUp setStep = { setStep }/>
-        :
-        step === 2 ?
-        <FirstSetup/>
-        :
-        <UsernameSelect/>
-        }
+            <NewUserState state={step} setStep={setStep} />
+            {step === 0 ?
+                <UsernameSelect setStep={setStep} updateInfos={updateInfos} />
+                :
+                step === 1 ?
+                    <SignUp setStep={setStep} updateInfos={updateInfos} initUser={initUser}/>
+                    :
+                    step === 2 ?
+                        <FirstSetup updateInfos={updateInfos}/>
+                        :
+                        <UsernameSelect setStep={setStep} updateInfos={updateInfos}/>
+            }
         </div>
     )
 }

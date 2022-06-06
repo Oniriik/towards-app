@@ -26,6 +26,10 @@ export default function Dashboard() {
     <div>Dashboard</div>
     <p>Connected using {currentUser.email}</p>
     <button onClick={handleSignOut}>signOut</button>
+    {JSON.stringify(currentUser,null,'\t')}
+    <hr />
+    {JSON.stringify(currentUser.uid)}
+}
     </>
   )
 }

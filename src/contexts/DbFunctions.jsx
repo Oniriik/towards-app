@@ -1,35 +1,34 @@
 
 import React, { useContext } from 'react'
-
-import {db} from '../config/firebase'
+import firebase from 'firebase/compat/app'
+import { db } from '../config/firebase'
 import { useAuth } from './AuthProvider'
 
 const dbContext = React.createContext()
 
-export function useDbFunctions(){
+export function useDbFunctions() {
     return useContext(dbContext)
 }
 
-export function DbFunctions({ children }){
-    
-    const {currentUser} = useAuth()
-    function createUserProfile({name,username,links}){
-        db.collection('users').doc(currentUser.uid).set({
-            username,
-            name,
-            links
+export function DbFunctions({ children }) {
+
+    const { currentUser } = useAuth()
+    function createUserProfile(infos,uid) {
+        db.collection('users').doc(uid).set({
+            ...infos,
+            signupDate : firebase.firestore.Timestamp.fromDate(new Date)
         })
     }
-    
-    function getUserInfos(){
-    
+
+    function getUserInfos() {
+
     }
 
     const value = {
         createUserProfile,
         getUserInfos
     }
-    
+
     return (
         <dbContext.Provider value={value}>
             {children}
