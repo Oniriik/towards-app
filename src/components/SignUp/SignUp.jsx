@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import "./signup.css"
 import { useAuth } from '../../contexts/AuthProvider'
-export default function SignUp() {
+export default function SignUp({setStep}) {
 
   const nameRef = useRef()
   const emailRef = useRef()
@@ -13,6 +13,7 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e) {
+    
     e.preventDefault();
     if (passwordRef.current.value.length < 6) {
       return setError("password must be atleast 6 characters ")
@@ -26,7 +27,7 @@ export default function SignUp() {
       setError('')
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-
+      currentUser && setStep(2)
     } catch (error) {
       console.error(error);
       setError("Error creating an account")
