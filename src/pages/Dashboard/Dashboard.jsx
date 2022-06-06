@@ -29,7 +29,7 @@ export default function Dashboard() {
     {JSON.stringify(currentUser,null,'\t')}
     <hr />
     {JSON.stringify(currentUser.uid)}
-}
+
     </>
   )
 }
