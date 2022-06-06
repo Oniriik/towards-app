@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import "./signup.css"
 import { useAuth } from '../../contexts/AuthProvider'
 export default function SignUp({setStep}) {
@@ -8,9 +8,14 @@ export default function SignUp({setStep}) {
   const passwordRef = useRef()
   const passwordconfirmRef = useRef()
   const { signup, currentUser} = useAuth()
+  
 
   const [error, setError] = useState()
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    currentUser && setStep(2)
+  },[currentUser])
 
   async function handleSubmit(e) {
     
@@ -27,12 +32,14 @@ export default function SignUp({setStep}) {
       setError('')
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      currentUser && setStep(2)
     } catch (error) {
       console.error(error);
       setError("Error creating an account")
     }
     setLoading(false)
+  }
+  function previous(){
+    setStep(0)
   }
   return (
     <div className='signupForm'>
@@ -50,6 +57,7 @@ export default function SignUp({setStep}) {
       <hr /><p>or</p><hr />
       </div>
       <button className='googleSignup'><p>signup with </p><img src='https://i.ibb.co/F5THtXr/google-Icon.png' alt="googleIcon" /></button>
+      <button className='previous' onClick={previous}>&lt;--</button>
     </div>
   )
 }
