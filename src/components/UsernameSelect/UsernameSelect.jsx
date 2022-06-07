@@ -6,7 +6,6 @@ export default function UsernameSelect({ setStep, updateInfos }) {
   const { findUsername } = useDbFunctions()
   const [username, setUsername] = useState('');
   const [isAvailable, setIsAvailable] = useState(false);
-  const [error, setError] = useState('');
   async function handleClick() {
     updateInfos({ username })
     setStep(1)
