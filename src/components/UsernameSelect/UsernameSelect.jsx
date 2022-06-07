@@ -13,7 +13,6 @@ export default function UsernameSelect({ setStep, updateInfos }) {
   }
   async function updatedField(username) {
     setUsername(username)
-    setError('')
     if (username.length > 4) {
       console.log(await findUsername(username))
       const find = await findUsername(username)
