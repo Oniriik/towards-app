@@ -5,6 +5,7 @@ import { useDbFunctions } from '../../contexts/DbFunctions';
 export default function UsernameSelect({ setStep, updateInfos }) {
   const { findUsername } = useDbFunctions()
   const [username, setUsername] = useState('');
+  const [isAvailable, setIsAvailable] = useState(false);
   const [error, setError] = useState('');
   async function handleClick() {
     updateInfos({ username })
@@ -13,24 +14,31 @@ export default function UsernameSelect({ setStep, updateInfos }) {
   }
   async function updatedField(username) {
     setUsername(username)
-
+    setError('')
     if (username.length > 4) {
-      const isAvailable = await findUsername(username)
-      isAvailable ? setError('Username not available :/') : setError('')
+      console.log(await findUsername(username))
+      const find = await findUsername(username)
+      find ? setIsAvailable(false) : setIsAvailable(true)
     }
+    
   }
 
   return (
-    <div className="usernameselect">
-      <h2>Pick your username</h2>
-      <div className='username-field'>
-        <img src={require("../../assets/logo_simple.png")} alt="" />
-        <p>twrds.link/</p>
-        <input value={username} onChange={event => updatedField(event.target.value)} type="text" placeholder='username' />
+    <div className="username-selection-wrapper">
+      <div className='username-selection'>
+        <h2>Pick your username</h2>
+        <div className='username-field'>
+          <img src={require("../../assets/logo_simple.png")} alt="" />
+          <p>twrds.link/</p>
+          <input value={username} onChange={event => updatedField(event.target.value)} type="text" placeholder='username' />
+        </div>
+        {username.length > 4 ? isAvailable ? <button onClick={handleClick}>&#10003;</button> : <p>Username not available :/</p> : ''}
+
       </div>
-      {error}
-      <button onClick={handleClick}>next</button>
-      <div></div>
+      <div className="username-selection-tips">
+        <img src={require('../../assets/tips.png')} alt="" />
+        <p>Pick an username that remember your socials to help your fans recognize you. </p>
+      </div>
     </div>
   )
 }

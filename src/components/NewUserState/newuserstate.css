@@ -1,21 +1,29 @@
 .purple {
   color: #9C51E0;
-  margin: 10px;
 }
 
 .grey {
   color: #A7A7A7;
-  margin: 10px;
 }
 
 .newuser-state {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-bottom: 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 50px;
+  width: 100%;
 }
 
 .newuser-state p {

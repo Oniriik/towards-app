@@ -1,26 +1,74 @@
-.username-field{
+.username-selection-wrapper {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 2rem;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    border: solid 3px #C9C9C9;
-    border-radius: 5px;
-    width: 250px;
+    height: 40vh;
 
-    padding: 3px;
-    img{
-        height: 20px; 
-        margin-right: 5px;
+    .username-selection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        .username-field {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            height: 2rem;
+            align-items: center;
+            border: solid 3px #C9C9C9;
+            border-radius: 5px;
+            width: 250px;
+
+            padding: 3px;
+
+            img {
+                height: 20px;
+                margin-right: 5px;
+            }
+
+            p {
+                font-weight: 600;
+            }
+
+            input {
+                border: none;
+                height: 100%;
+                padding: 0 1px;
+                font-weight: 500;
+                width: 120px;
+            }
+            
+        }
+        button{
+            padding: 0.2rem 0.5rem;
+            
+            border: solid 1px grey;
+            border-radius: 10px;
+            font-weight: 600;
+            color: white;
+            background-color: #9C51E0;
+            cursor: pointer;
+        }
+
     }
-    p{
-        font-weight: 600;
-    }
-    input{
-        border: none;
-        height: 100%;
-        padding: 0 1px ;
-        font-weight: 500;
-        width: 120px;
+
+    .username-selection-tips {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        img {
+            align-self: flex-start;
+            height: 30px;
+        }
+        p{
+            width: 310px;
+            font-weight: 600;
+            color: #525252;
+        }
     }
 }
