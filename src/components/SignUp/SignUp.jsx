@@ -18,7 +18,7 @@ export default function SignUp({ setStep, updateInfos, initUser }) {
   useEffect(() => {
     if (currentUser) {
       setStep(2)
-      initUser(currentUser.uid)
+      initUser()
     }
   }, [currentUser])
 
@@ -44,7 +44,7 @@ export default function SignUp({ setStep, updateInfos, initUser }) {
       setError("Error creating an account")
     }
     setLoading(false)
-    updateInfos({ name })
+    updateInfos({ name, email})
   }
   function previous() {
     setStep(0)

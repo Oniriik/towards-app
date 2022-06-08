@@ -1,0 +1,25 @@
+.firstsetup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 30vh;
+    .links{ 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 1rem;
+    }
+    button {
+        padding: 0.2rem 0.5rem;
+
+        border: solid 1px grey;
+        border-radius: 10px;
+        font-weight: 600;
+        color: white;
+        background-color: #9C51E0;
+        cursor: pointer;
+    }
+}

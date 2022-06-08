@@ -11,13 +11,13 @@ export default function NewUser() {
     const { createUserProfile } = useDbFunctions()
     const [step, setStep] = useState(0)
     const [userInfos, setUserinfos] = useState()
-    
-    function updateInfos(update){
-        setUserinfos({...userInfos,...update})
+
+    function updateInfos(update) {
+        setUserinfos({ ...userInfos, ...update })
     }
-    async function initUser(uid) {
+    async function initUser() {
         try {
-            await createUserProfile(userInfos,uid)
+            await createUserProfile(userInfos)
         } catch (e) {
             console.log(e)
         }
@@ -30,12 +30,12 @@ export default function NewUser() {
                 <UsernameSelect setStep={setStep} updateInfos={updateInfos} />
                 :
                 step === 1 ?
-                    <SignUp setStep={setStep} updateInfos={updateInfos} initUser={initUser}/>
+                    <SignUp setStep={setStep} updateInfos={updateInfos} initUser={initUser} />
                     :
                     step === 2 ?
-                        <FirstSetup updateInfos={updateInfos}/>
+                        <FirstSetup updateInfos={updateInfos} />
                         :
-                        <UsernameSelect setStep={setStep} updateInfos={updateInfos}/>
+                        <UsernameSelect setStep={setStep} updateInfos={updateInfos} />
             }
         </div>
     )

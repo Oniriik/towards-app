@@ -40,11 +40,12 @@
                 font-weight: 500;
                 width: 120px;
             }
-            
+
         }
-        button{
+
+        button {
             padding: 0.2rem 0.5rem;
-            
+
             border: solid 1px grey;
             border-radius: 10px;
             font-weight: 600;
@@ -52,7 +53,8 @@
             background-color: #9C51E0;
             cursor: pointer;
         }
-        .error{
+
+        .error {
             color: rgb(209, 30, 30);
             font-weight: 700;
         }
@@ -64,11 +66,13 @@
         justify-content: center;
         align-items: center;
         gap: 5px;
+
         img {
             align-self: flex-start;
             height: 30px;
         }
-        p{
+
+        p {
             width: 310px;
             font-weight: 600;
             color: #525252;

@@ -1,0 +1,39 @@
+.linkinput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: solid 3px #C9C9C9;
+  border-radius: 5px;
+  width: 280px;
+  padding: 3px;
+}
+
+.linkinput img {
+  border-radius: 5px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.linkinput p {
+  font-weight: 600;
+}
+
+.linkinput input {
+  border: none;
+  height: 100%;
+  padding: 0 1px;
+  font-weight: 500;
+  width: 120px;
+}
+/*# sourceMappingURL=linkinput.css.map */
