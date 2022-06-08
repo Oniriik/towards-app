@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import firebase from 'firebase/compat/app'
 import { db } from '../config/firebase'
 import { useAuth } from './AuthProvider'
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs ,doc, getDoc} from "firebase/firestore";
 
 const dbContext = React.createContext()
 
@@ -12,7 +12,7 @@ export function useDbFunctions() {
 }
 
 export function DbFunctions({ children }) {
-    
+
     const { currentUser } = useAuth()
 
     function createUserProfile(infos) {
@@ -31,10 +31,17 @@ export function DbFunctions({ children }) {
         const querySnapshot = await getDocs(q);
         return querySnapshot.docs[0] ? querySnapshot.docs[0].data() : undefined
     }
+    async function getUserInfos() {
+        const q = doc(db, "users", currentUser.uid);
+        const querySnapshot = await getDoc(q);
+        console.log(querySnapshot.data())
+        return querySnapshot.data()
+    }
     const value = {
         createUserProfile,
         updateUserProfile,
-        findUsername
+        findUsername,
+        getUserInfos
     }
 
     return (
