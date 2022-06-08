@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import "./signup.css"
 import { useAuth } from '../../contexts/AuthProvider'
 
-export default function SignUp({ setStep, updateInfos ,initUser}) {
+export default function SignUp({ setStep, updateInfos, initUser }) {
 
   const [name, setName] = useState()
   const [email, setEmail] = useState()
@@ -16,8 +16,10 @@ export default function SignUp({ setStep, updateInfos ,initUser}) {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    currentUser && setStep(2)
-    currentUser && initUser(currentUser.uid)
+    if (currentUser) {
+      setStep(2)
+      initUser(currentUser.uid)
+    }
   }, [currentUser])
 
   async function handleSubmit(e) {
@@ -42,7 +44,7 @@ export default function SignUp({ setStep, updateInfos ,initUser}) {
       setError("Error creating an account")
     }
     setLoading(false)
-    updateInfos({name})
+    updateInfos({ name })
   }
   function previous() {
     setStep(0)

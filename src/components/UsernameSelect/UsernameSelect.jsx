@@ -30,7 +30,7 @@ export default function UsernameSelect({ setStep, updateInfos }) {
           <p>twrds.link/</p>
           <input value={username} onChange={event => updatedField(event.target.value)} type="text" placeholder='username' />
         </div>
-        {username.length > 4 ? isAvailable ? <button onClick={handleClick}>&#10003;</button> : <p>Username not available :/</p> : ''}
+        {username.length > 4 ? isAvailable ? <button onClick={handleClick}>&#10003;</button> : <p className='error'>Username not available :/</p> : ''}
 
       </div>
       <div className="username-selection-tips">

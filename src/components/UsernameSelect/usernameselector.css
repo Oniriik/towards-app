@@ -80,6 +80,11 @@
   cursor: pointer;
 }
 
+.username-selection-wrapper .username-selection .error {
+  color: #d11e1e;
+  font-weight: 700;
+}
+
 .username-selection-wrapper .username-selection-tips {
   display: -webkit-box;
   display: -ms-flexbox;
