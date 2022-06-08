@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import "./newuser.css"
+import useDocumentTitle from '../../functions/useDocumentTitle'
 import UsernameSelect from '../../components/UsernameSelect/UsernameSelect'
 import SignUp from '../../components/SignUp/SignUp'
 import FirstSetup from '../../components/FirstSetup/FirstSetup'
 import NewUserState from '../../components/NewUserState/NewUserState'
 import { useDbFunctions } from '../../contexts/DbFunctions'
-
 export default function NewUser() {
+    useDocumentTitle("Towards - Sign Up")
     const { createUserProfile } = useDbFunctions()
     const [step, setStep] = useState(0)
     const [userInfos, setUserinfos] = useState()

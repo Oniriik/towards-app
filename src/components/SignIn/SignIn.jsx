@@ -2,7 +2,10 @@ import React, { useRef, useState } from 'react'
 import "./signin.css"
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthProvider'
+import useDocumentTitle from '../../functions/useDocumentTitle'
+
 export default function SignIn() {
+    useDocumentTitle("Towards - Sign in")
     const navigate = useNavigate()
     const emailRef = useRef()
     const passwordRef = useRef()
